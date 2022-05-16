@@ -1,0 +1,25 @@
+{
+  "name": "Generic-Trigger",
+  "type": "trigger",
+  "execProgram": "node",
+  "main": "app.js",
+  "imgUrl": "logo.png",
+  "version": "1.0.0",
+  "description": "Generic multipurpose webhook",
+  "methods": [
+    {
+      "name": "defaultWebhook",
+      "route": "post /webhook/generic/:webhookName",
+      "viewName": "Default webhook",
+      "params": [
+        {
+          "name": "webhookName",
+          "viewName": "Webhook name",
+          "description": "Name used to differentiate this endpoint from other Generic Triggers' endpoints",
+          "type": "string",
+          "required": true
+        }
+      ]
+    }
+  ]
+}
