@@ -17,12 +17,16 @@ function extractRequestData(req) {
 async function defaultWebhook(req, res, settings, triggerControllers) {
   try {
     const { webhookName } = req.params;
+    const httpMethod = req.method;
 
     const data = extractRequestData(req);
     const executionMessage = `generic trigger ${webhookName}`;
 
     triggerControllers.forEach((trigger) => {
-      if (trigger.params.webhookName !== webhookName) {
+      if (
+        trigger.params.webhookName !== webhookName ||
+        trigger.params.httpMethod !== httpMethod
+      ) {
         return;
       }
 

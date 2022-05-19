@@ -9,9 +9,37 @@
   "methods": [
     {
       "name": "defaultWebhook",
-      "route": "post /webhook/generic/:webhookName",
+      "route": "* /webhook/generic/:webhookName",
       "viewName": "Default webhook",
       "params": [
+        {
+          "name": "httpMethod",
+          "viewName": "HTTP Method",
+          "type": "options",
+          "required": true,
+          "options": [
+            {
+              "id": "GET",
+              "name": "GET"
+            },
+            {
+              "id": "POST",
+              "name": "POST"
+            },
+            {
+              "id": "DELETE",
+              "name": "DELETE"
+            },
+            {
+              "id": "PUT",
+              "name": "PUT"
+            },
+            {
+              "id": "PATCH",
+              "name": "PATCH"
+            }
+          ]
+        },
         {
           "name": "webhookName",
           "viewName": "Webhook name",
