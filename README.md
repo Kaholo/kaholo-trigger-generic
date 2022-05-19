@@ -3,14 +3,14 @@ This plugin provides a generic webhook for the triggering of Kaholo pipelines fr
 
 ## How to use:
 1. Install the trigger in Kaholo Platform
-1. Select the default webhook method
-1. Specify the Webhook name, which should be unique among all the Generic Triggers
+1. Select the Basic Webhook method
+1. Specify the Webhook Name, which should be unique among all the Generic Triggers
 1. Send an HTTP request to the endpoint, including optional parameter payload (either urlencoded or JSON).
 
 ## Configuration
 A configuration may be selected but this plugin does not require or use Kaholo Pipeline Configurations.
 
-## Method Basic webhook:
+## Method Basic Webhook:
 Currently the only method available - this establishes a listening webhook at a specified URL that will trigger a pipeline execution when it receives an HTTP request of the specified type, including the payload if one is provided.
 
 ### Webhook URL:
