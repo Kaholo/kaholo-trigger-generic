@@ -1,6 +1,6 @@
 {
   "name": "Generic-Trigger",
-  "viewname": "Generic Trigger",
+  "viewName": "Generic Trigger",
   "type": "trigger",
   "execProgram": "node",
   "main": "app.js",
