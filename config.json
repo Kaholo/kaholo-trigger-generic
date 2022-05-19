@@ -1,5 +1,6 @@
 {
   "name": "Generic-Trigger",
+  "viewname": "Generic Trigger",
   "type": "trigger",
   "execProgram": "node",
   "main": "app.js",
@@ -10,7 +11,7 @@
     {
       "name": "defaultWebhook",
       "route": "* /webhook/generic/:webhookName",
-      "viewName": "Default webhook",
+      "viewName": "Basic Webhook",
       "params": [
         {
           "name": "httpMethod",
@@ -42,9 +43,10 @@
         },
         {
           "name": "webhookName",
-          "viewName": "Webhook name",
-          "description": "Name used to differentiate this endpoint from other Generic Triggers' endpoints",
+          "viewName": "Webhook Name",
+          "description": "Name used to differentiate this endpoint from all other Generic Trigger endpoints.",
           "type": "string",
+          "placeholder": "mywebhook-a83d14251bfc",
           "required": true
         }
       ]
