@@ -20,6 +20,10 @@
           "required": true,
           "options": [
             {
+              "id": "any",
+              "name": "any"
+            },
+            {
               "id": "GET",
               "name": "GET"
             },

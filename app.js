@@ -14,8 +14,9 @@ async function defaultWebhook(req, res, settings, triggerControllers) {
 
     triggerControllers.forEach((trigger) => {
       if (
-        trigger.params.webhookName !== webhookName ||
-        trigger.params.httpMethod !== httpMethod
+        trigger.params.httpMethod !== 'any' &&
+          (trigger.params.webhookName !== webhookName ||
+          trigger.params.httpMethod !== httpMethod)
       ) {
         return;
       }
