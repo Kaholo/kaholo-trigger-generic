@@ -21,7 +21,7 @@ async function defaultWebhook(req, res, settings, triggerControllers) {
         return;
       }
 
-      trigger.execute(executionMessage, data ? JSON.stringify(data) : "");
+      trigger.execute(executionMessage, data);
     });
 
     res.status(200).send("OK");
