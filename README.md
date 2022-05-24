@@ -20,10 +20,11 @@ The URL follows the pattern:
 **{KAHOLO_URL}/webhook/generic/{WEBHOOK_NAME}**
 
 ### Parameters:
+* HTTP Method - Here you may choose "any" to trigger on any HTTP activity to the endpoint, or you may select a specific method and then only that method will trigger the pipeline execution.
 * Webhook name (string) - Webhook's name used to differentiate it from other generic webhooks. Make this long and complex if necessary to avoid brute force or dictionary attacks.
 
 ## Triggering Examples
-Using curl from command line via ngrok URL:
+Using curl from command line via ngrok URL with HTTP method POST:
 
     curl -d "trigger=curl" -H "Content-Type: application/x-www-form-urlencoded" -X POST https://16bd-2406-3003-2073-164d-25e5-71a9-2199-a24c.ap.ngrok.io/webhook/generic/mytrigger
 
@@ -34,3 +35,5 @@ Using curl from Jenkins pipeline with default content type:
 Using curl from Jenkins pipeline with JSON content type:
 
     sh """curl -d '{"trigger": "jenkins"}' -H "Content-Type: application/json" https://myusername.kaholo.net/webhook/generic/mytrigger"""
+
+If the HTTP Method is "GET", simply pointing a web browser at the URL can trigger a pipeline execution. The browser will display simply "OK".
