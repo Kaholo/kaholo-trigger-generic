@@ -1,7 +1,7 @@
 const PAYLOAD_HTTP_METHODS = [
   "PUT",
   "POST",
-  "PATCH"
+  "PATCH",
 ];
 
 async function defaultWebhook(req, res, settings, triggerControllers) {
@@ -14,9 +14,9 @@ async function defaultWebhook(req, res, settings, triggerControllers) {
 
     triggerControllers.forEach((trigger) => {
       if (
-        trigger.params.httpMethod !== 'any' &&
-          (trigger.params.webhookName !== webhookName ||
-          trigger.params.httpMethod !== httpMethod)
+        trigger.params.httpMethod !== "any"
+          && (trigger.params.webhookName !== webhookName
+          || trigger.params.httpMethod !== httpMethod)
       ) {
         return;
       }
@@ -35,9 +35,8 @@ async function defaultWebhook(req, res, settings, triggerControllers) {
 function extractRequestData(req, httpMethod) {
   if (PAYLOAD_HTTP_METHODS.includes(httpMethod)) {
     return extractDataFromReqBody(req);
-  } else {
-    return req.query;
   }
+  return req.query;
 }
 
 function extractDataFromReqBody(req) {
@@ -45,7 +44,6 @@ function extractDataFromReqBody(req) {
     case "application/json":
     case "application/x-www-form-urlencoded":
       return req.body;
-      break;
 
     default:
       throw new Error(`Unsupported 'content-type' header. Received: ${req.headers["content-type"]}`);
