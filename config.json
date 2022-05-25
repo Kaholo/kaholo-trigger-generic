@@ -1,0 +1,59 @@
+{
+  "name": "Generic-Trigger",
+  "viewName": "Generic Trigger",
+  "type": "trigger",
+  "execProgram": "node",
+  "main": "app.js",
+  "imgUrl": "logo.png",
+  "version": "1.0.0",
+  "description": "Generic multipurpose webhook",
+  "methods": [
+    {
+      "name": "defaultWebhook",
+      "route": "* /webhook/generic/:webhookName",
+      "viewName": "Basic Webhook",
+      "params": [
+        {
+          "name": "httpMethod",
+          "viewName": "HTTP Method",
+          "type": "options",
+          "required": true,
+          "options": [
+            {
+              "id": "any",
+              "name": "any"
+            },
+            {
+              "id": "GET",
+              "name": "GET"
+            },
+            {
+              "id": "POST",
+              "name": "POST"
+            },
+            {
+              "id": "DELETE",
+              "name": "DELETE"
+            },
+            {
+              "id": "PUT",
+              "name": "PUT"
+            },
+            {
+              "id": "PATCH",
+              "name": "PATCH"
+            }
+          ]
+        },
+        {
+          "name": "webhookName",
+          "viewName": "Webhook Name",
+          "description": "Name used to differentiate this endpoint from all other Generic Trigger endpoints.",
+          "type": "string",
+          "placeholder": "mywebhook-a83d14251bfc",
+          "required": true
+        }
+      ]
+    }
+  ]
+}
