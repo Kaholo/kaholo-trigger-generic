@@ -6,7 +6,7 @@
   "main": "app.js",
   "imgUrl": "logo.png",
   "version": "1.0.1",
-  "description": "Generic multipurpose webhook",
+  "description": "Generic multipurpose webhook to trigger Kaholo pipelines",
   "methods": [
     {
       "name": "defaultWebhook",
