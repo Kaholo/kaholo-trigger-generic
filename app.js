@@ -1,8 +1,4 @@
-const PAYLOAD_HTTP_METHODS = [
-  "PUT",
-  "POST",
-  "PATCH",
-];
+const { extractRequestData } = require("./helpers");
 
 async function defaultWebhook(req, res, settings, triggerControllers) {
   try {
@@ -14,9 +10,11 @@ async function defaultWebhook(req, res, settings, triggerControllers) {
 
     triggerControllers.forEach((trigger) => {
       if (
-        trigger.params.httpMethod !== "any"
-          && (trigger.params.webhookName !== webhookName
-          || trigger.params.httpMethod !== httpMethod)
+        trigger.params.webhookName !== webhookName
+        || (
+          trigger.params.httpMethod !== "any"
+          && trigger.params.httpMethod !== httpMethod
+        )
       ) {
         return;
       }
@@ -30,24 +28,6 @@ async function defaultWebhook(req, res, settings, triggerControllers) {
   }
 
   return Promise.resolve();
-}
-
-function extractRequestData(req, httpMethod) {
-  if (PAYLOAD_HTTP_METHODS.includes(httpMethod)) {
-    return extractDataFromReqBody(req);
-  }
-  return req.query;
-}
-
-function extractDataFromReqBody(req) {
-  switch (req.headers["content-type"]) {
-    case "application/json":
-    case "application/x-www-form-urlencoded":
-      return req.body;
-
-    default:
-      throw new Error(`Unsupported 'content-type' header. Received: ${req.headers["content-type"]}`);
-  }
 }
 
 module.exports = {
