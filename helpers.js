@@ -15,10 +15,18 @@ function extractDataFromReqBody(req) {
   switch (req.headers["content-type"]) {
     case "application/json":
     case "application/x-www-form-urlencoded":
-      return req.body;
+      return tryJSONParse(req.body);
 
     default:
       throw new Error(`Unsupported 'content-type' header. Received: ${req.headers["content-type"]}`);
+  }
+}
+
+function tryJSONParse(value) {
+  try {
+    return JSON.parse(value);
+  } catch {
+    return value;
   }
 }
 
