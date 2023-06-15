@@ -5,8 +5,21 @@
   "execProgram": "node",
   "main": "app.js",
   "imgUrl": "logo.png",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generic multipurpose webhook to trigger Kaholo pipelines",
+  "category": [
+    "Triggers"
+  ],
+  "keywords": [
+    "kaholo",
+    "pipeline",
+    "execute",
+    "rest",
+    "web",
+    "api",
+    "post",
+    "http"
+   ],
   "methods": [
     {
       "name": "defaultWebhook",
@@ -17,6 +30,7 @@
           "name": "httpMethod",
           "viewName": "HTTP Method",
           "type": "options",
+          "description": "Choose either \"any\" or one specific HTTP method that will activate the trigger.",
           "required": true,
           "options": [
             {
